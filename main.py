@@ -1,6 +1,9 @@
 import login #file name
 from login import login # and from file name get the class
 
+import driverLogin
+from driverLogin import driver
+
 import submitWorkOrder
 from submitWorkOrder import submitWorkOrder
 
@@ -17,4 +20,5 @@ if __name__ == '__main__':
     loginObj=login(webdriver,"stech","pass")
     swo=submitWorkOrder(webdriver)
     driver = driver(webdriver,"driver","pass")
+    webdriver.quit()
 
