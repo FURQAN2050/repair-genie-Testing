@@ -1,5 +1,5 @@
 import time
-
+from selenium.webdriver.support.ui import Select
 class submitWorkOrder:
     def __init__(self,wd):
         self.driver = wd;
@@ -13,6 +13,9 @@ class submitWorkOrder:
     def fillTextBoxes(self):
         self.assetId()
         self.incidentId()
+        self.deviceType()
+        self.periferal()
+        self.serial()
 
 
     def runTest(self):
@@ -33,6 +36,20 @@ class submitWorkOrder:
 
     def deviceType(self):
         time.sleep(2)
-        print('device Type Added')
+        select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[3]/select"))
+        select.select_by_index(2)
+        print('deviceType Added')
+
+    def periferal(self):
+        time.sleep(2)
+        select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[4]/select"))
+        select.select_by_index(2)
+        print('peripheral Added')
+
+    def serial(self):
+        time.sleep(2)
+        serialIdTextBox = self.driver.find_element_by_name("serial")
+        serialIdTextBox.send_keys("500")
+        print('serial No added')
 
 
