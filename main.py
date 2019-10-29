@@ -16,4 +16,5 @@ if __name__ == '__main__':
 
     loginObj=login(webdriver,"stech","pass")
     swo=submitWorkOrder(webdriver)
+    driver = driver(webdriver,"driver","pass")
 
