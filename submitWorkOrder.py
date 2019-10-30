@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.support.ui import Select
-
+import logout
+from logout import logout
 
 
 class submitWorkOrder:
@@ -26,7 +27,7 @@ class submitWorkOrder:
         self.schoolRefID()
         self.Issue()
         self.reset()
-        self.logout_button()
+        self.logout()
         
 
     def runTest(self):
@@ -103,8 +104,8 @@ class submitWorkOrder:
         submitButton.click()
         print('reset button clicked successfully')    
 
-    def logout_button(self):
-        logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
-        logoutButton.click()
 
+    def logout(self):
+        lgobj = logout(self.driver)
+        print('logout successfull')   
   
