@@ -21,7 +21,7 @@ class BarcodeTest:
     
     def fillTextBoxes(self):
         self.fillLenovoNotes()
-        self.fillSchoolNotes
+        self.fillSchoolNotes()
         self.fillPrivateNotes()
         self.fillRepairProvided()
         self.clickStatusButton()

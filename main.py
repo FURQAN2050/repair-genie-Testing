@@ -25,6 +25,5 @@ if __name__ == '__main__':
     loginObj=login(webdriver,"admin","pass")
     barcodeObj=BarcodeTest(webdriver)
 
-    driver = driver(webdriver,"driver","pass")
     webdriver.quit()
 
