@@ -5,7 +5,7 @@ class chromeWebDriver:
         print('constructor called chrome driver')
 
     def setchromeWebDriver(self):
-        self.wd = webdriver.Chrome(executable_path='C:/chromeDriver/chromedriver.exe')
+        self.wd = webdriver.Chrome('/usr/local/bin/chromedriver')
 
     def getWebDriver(self):
         return self.wd

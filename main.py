@@ -1,9 +1,6 @@
 import login #file name
 from login import login # and from file name get the class
 
-import driverLogin
-from driverLogin import driver
-
 import submitWorkOrder
 from submitWorkOrder import submitWorkOrder
 
@@ -26,9 +23,9 @@ if __name__ == '__main__':
 
     stech = login(webdriver,"stech","pass") #USER: Stech login
     swo = submitWorkOrder(webdriver)
-    driver = driver(webdriver,"driver","pass") #USER Driver Login
-    admin = login(webdriver,"admin","pass") #USER Admin Login
+    driver = login(webdriver,"driver","pass") #USER Driver Login
     pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
+    admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
     webdriver.quit()
 
