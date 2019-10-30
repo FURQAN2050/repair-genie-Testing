@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# ignore local pyenvsetup
+# on your custom machine if using pyenv just do
+# pyenv local 3.8.0
+# pyenv exec python -m vevn 3-8-0
+# pip install pytest 
+# pip install selenium
+3-8-0/*  
+
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ignore pycharm stuff
+.idea/*
+
+
+#ignore vscode stuff
+.vscode/*
