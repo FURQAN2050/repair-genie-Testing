@@ -35,19 +35,8 @@ class driver:
         self.driver.find_element_by_tag_name("button").click()
         print('Button Clicked Successfully')
 
-    def logout(self):
-        time.sleep(10)
-        self.driver.get("http://testing.repairgenie.net/logout")
-        print('Logout Successful')
 
-<<<<<<< HEAD
-    def loginTest(self):
-        self.openLoginPage()
-        self.addCredentials()
-        self.click_on_button()
-        self.logout()
 
-=======
     def addCredentials(self):
         # time.sleep(2)
         username = self.driver.find_element_by_id("username")
@@ -66,7 +55,9 @@ class driver:
     def logout_button(self):
         logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
         logoutButton.click()
->>>>>>> origin/arsalanwahidasghar
+        # This is the logout code using another method
+        # self.driver.get("http://testing.repairgenie.net/logout")
+        # print('Logout Successful')
 
 
 

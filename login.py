@@ -10,6 +10,13 @@ class login:
         self.driver.maximize_window()
         self.loginTest()
 
+# This controls all the Steps to take place
+    def loginTest(self):
+        self.openLoginPage()
+        self.addCredentials()
+        self.login_button_submit()
+        self.logout()
+
     def openLoginPage(self):
         self.driver.get("http://testing.repairgenie.net")
         print('login page succesfully open')
@@ -22,13 +29,14 @@ class login:
         password = self.driver.find_element_by_id("password")
         password.send_keys(self.password)
         print('credentials added successfully')
-    def click_on_button(self):
+
+    def login_button_submit(self):
         time.sleep(2)
         self.driver.find_element_by_tag_name("button").click();
-        print('button clicked successfully')
-
-    def loginTest(self):
-        self.openLoginPage()
-        self.addCredentials()
-        self.click_on_button()
-
+        print('Login Button Clicked Successfully')
+    
+    def logout(self):
+        logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
+        logoutButton.click()
+        # self.driver.get("http://testing.repairgenie.net/logout")
+        # print('Logout Successful')

@@ -17,8 +17,9 @@ if __name__ == '__main__':
     cwdObj.setchromeWebDriver()     #set chromedriver
     webdriver=cwdObj.getWebDriver() #get chrome driver so that the same instance should be send to all files
 
-    loginObj=login(webdriver,"stech","pass")
-    swo=submitWorkOrder(webdriver)
-    driver = driver(webdriver,"driver","pass")
+    stech = login(webdriver,"stech","pass") #USER: Stech login
+    swo = submitWorkOrder(webdriver)
+    driver = driver(webdriver,"driver","pass") #USER Driver Login
+    admin = login(webdriver,"admin","pass") #USER Admin Login
     webdriver.quit()
 
