@@ -16,6 +16,7 @@ class submitWorkOrder:
         self.deviceType()
         self.periferal()
         self.serial()
+        self.logout_button()
 
 
     def runTest(self):
@@ -36,7 +37,9 @@ class submitWorkOrder:
 
     def deviceType(self):
         time.sleep(2)
-        select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[3]/select"))
+        # select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[3]/select"))
+        select = Select(self.driver.find_element_by_name('devtype'))
+        # select.select_by_value("11e")
         select.select_by_index(2)
         print('deviceType Added')
 
@@ -52,4 +55,6 @@ class submitWorkOrder:
         serialIdTextBox.send_keys("500")
         print('serial No added')
 
-
+    def logout_button(self):
+        logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
+        logoutButton.click()
