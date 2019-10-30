@@ -10,6 +10,13 @@ from submitWorkOrder import submitWorkOrder
 import chromeWebDriver
 from chromeWebDriver import chromeWebDriver
 
+import driverPickupDevice
+from driverPickupDevice import driverPickupDevice
+
+import adminWorkshopRecDev
+from adminWorkshopRecDev import workshopReceiveDevice
+
+
 
 if __name__ == '__main__':
 
@@ -21,5 +28,7 @@ if __name__ == '__main__':
     swo = submitWorkOrder(webdriver)
     driver = driver(webdriver,"driver","pass") #USER Driver Login
     admin = login(webdriver,"admin","pass") #USER Admin Login
+    pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
+    workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
     webdriver.quit()
 

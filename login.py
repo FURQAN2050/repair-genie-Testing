@@ -4,9 +4,9 @@ import time
 
 class login:
     def __init__(self,wd,username,password):
-        self.username=username;
-        self.password=password;
-        self.driver=wd; #wb=webdriver;
+        self.username=username
+        self.password=password
+        self.driver=wd #wb=webdriver;
         self.driver.maximize_window()
         self.loginTest()
 
@@ -15,7 +15,6 @@ class login:
         self.openLoginPage()
         self.addCredentials()
         self.login_button_submit()
-        self.logout()
 
     def openLoginPage(self):
         self.driver.get("http://testing.repairgenie.net")
@@ -35,8 +34,8 @@ class login:
         self.driver.find_element_by_tag_name("button").click();
         print('Login Button Clicked Successfully')
     
-    def logout(self):
-        logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
-        logoutButton.click()
+    # def logout(self):
+    #     logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
+    #     logoutButton.click()
         # self.driver.get("http://testing.repairgenie.net/logout")
         # print('Logout Successful')
