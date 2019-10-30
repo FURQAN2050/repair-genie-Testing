@@ -4,9 +4,8 @@
 # Enter Asset ID into the field,
 # Click Submit
 
-import login #file name
-from login import login
 
+from login import login
 from logout import logout
 
 class driverPickupDevice:
@@ -23,7 +22,7 @@ class driverPickupDevice:
         self.selectSchool()
         self.inputAsset()
         self.submitButton()
-        self.logout_button()
+        self.logout_button();
 
     def pickupDeviceMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/pickup")
@@ -47,4 +46,5 @@ class driverPickupDevice:
 
     def logout_button(self):
         logout(self.driver)
-        print('logout successfull') 
+        print('Logged out from admin account')    
+

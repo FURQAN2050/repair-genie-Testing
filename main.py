@@ -4,6 +4,8 @@ from login import login # and from file name get the class
 import submitWorkOrder
 from submitWorkOrder import submitWorkOrder
 
+from barcode import BarcodeTest
+
 import chromeWebDriver
 from chromeWebDriver import chromeWebDriver
 
@@ -27,5 +29,6 @@ if __name__ == '__main__':
     pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
     admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
+    barcodeObj=BarcodeTest(webdriver)
     webdriver.quit()
 

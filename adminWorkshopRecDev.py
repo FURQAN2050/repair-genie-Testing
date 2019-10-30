@@ -19,7 +19,7 @@ class workshopReceiveDevice:
         self.workshop_ReceiveMenu()
         self.inputAsset()
         self.submitButton()
-        self.logout_button()
+        #self.logout_button()
 
     def workshop_ReceiveMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/workshoprecvdev")
