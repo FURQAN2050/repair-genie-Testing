@@ -4,6 +4,11 @@ from login import login # and from file name get the class
 import submitWorkOrder
 from submitWorkOrder import submitWorkOrder
 
+
+import dropDevices
+from dropDevices import dropDevices 
+
+
 import chromeWebDriver
 from chromeWebDriver import chromeWebDriver
 
@@ -14,7 +19,9 @@ if __name__ == '__main__':
     cwdObj.setchromeWebDriver()     #set chromedriver
     webdriver=cwdObj.getWebDriver() #get chrome driver so that the same instance should be send to all files
 
-    loginObj=login(webdriver,"stech","pass")
-    swo=submitWorkOrder(webdriver)
+    #loginObj=login(webdriver,"stech","pass")
+    loginObj=login(webdriver,"admin","pass")
+    #swo=submitWorkOrder(webdriver)
+    dd=dropDevices(webdriver)
     driver = driver(webdriver,"driver","pass")
 
