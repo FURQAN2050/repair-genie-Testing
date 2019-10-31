@@ -27,6 +27,7 @@ if __name__ == '__main__':
     stech = login(webdriver,"stech","pass") #USER: Stech login
     swo = submitWorkOrder(webdriver)
     uniqueAssetId=swo.getAssetId()
+    time.sleep(3)
     logout(webdriver)
 
     time.sleep(4)
