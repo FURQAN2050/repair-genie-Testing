@@ -24,21 +24,23 @@ if __name__ == '__main__':
 
     stech = login(webdriver,"stech","pass") #USER: Stech login
     swo = submitWorkOrder(webdriver)
-    logout(webdriver)
-    driver = login(webdriver,"driver","pass") #USER Driver Login
-    pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
-    logout(webdriver)
-    admin = login(webdriver,"admin","pass") #USER Admin Login
-    workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
-    barcodeObj=BarcodeTest(webdriver)
-
-
-    # working on drop devices from admin to driver (huzaifa)
-    adminDropDevices = adminDropDevices(webdriver)
+    uniqueAssetId=swo.getAssetId()
     logout(webdriver)
     
     driver = login(webdriver,"driver","pass") #USER Driver Login
-    dropDevices = dropDevices(webdriver) #USER Driver drop device 
+    pickupDevice = driverPickupDevice(webdriver,uniqueAssetId+"-C") #(webdriver, schoolname, assetID)
     logout(webdriver)
-    webdriver.quit()
+    admin = login(webdriver,"admin","pass") #USER Admin Login
+    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId+"-C") #USER Admin Workshop Receive Device
+    barcodeObj=BarcodeTest(webdriver,"14543-C")
+
+
+    # working on drop devices from admin to driver (huzaifa)
+    #adminDropDevices = adminDropDevices(webdriver)
+    #logout(webdriver)
+    
+    #driver = login(webdriver,"driver","pass") #USER Driver Login
+    #dropDevices = dropDevices(webdriver) #USER Driver drop device 
+    #logout(webdriver)
+    #webdriver.quit()
 

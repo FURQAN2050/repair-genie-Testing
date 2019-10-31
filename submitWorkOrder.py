@@ -2,14 +2,15 @@ import time
 
 from selenium.webdriver.support.ui import Select
 
+import random
 
 
-class submitWorkOrder:
+class submitWorkOrder:   
     def __init__(self,wd):
         self.driver = wd;
         self.runTest()
         #self.driver.implicitly_wait(3)
-
+    
 
     def openSubmitWorkOrderPage(self):
         time.sleep(2);
@@ -20,13 +21,14 @@ class submitWorkOrder:
         self.assetId()
         self.incidentId()
         self.deviceType()
-        self.periferal()
+        #self.periferal()
         self.serial()
         self.nameLabel()
         self.pickUp()
         self.schoolRefID()
         self.Issue()
-        self.reset()
+        #self.reset()
+        self.submit()
         
 
     def runTest(self):
@@ -36,7 +38,9 @@ class submitWorkOrder:
     def assetId(self):
         time.sleep(2)
         assetIdTextBox=self.driver.find_element_by_name("msb")
-        assetIdTextBox.send_keys("10000")
+        self.uniqueAssetId=random.randint(10000, 15000)
+        self.uniqueAssetId=str(self.uniqueAssetId)
+        assetIdTextBox.send_keys(self.uniqueAssetId)
         print('asset Id added')
 
     def incidentId(self):
@@ -68,13 +72,13 @@ class submitWorkOrder:
     def nameLabel(self):
         time.sleep(2)
         name_LabelIdTextBox = self.driver.find_element_by_name("namelabel")
-        name_LabelIdTextBox.send_keys("Adibs Teat Submission")
+        name_LabelIdTextBox.send_keys("Test Submission")
         print('name Label added')
 
     def pickUp(self):
         time.sleep(2)
         select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[7]/select"))
-        select.select_by_index(2)
+        select.select_by_index(1)
         print('pickUP and Drop Location Added')  
 
     def schoolRefID(self):
@@ -101,5 +105,8 @@ class submitWorkOrder:
         time.sleep(3)
         submitButton = self.driver.find_element_by_class_name('btn-success')
         submitButton.click()
-        print('submit button clicked successfully')    
+        print('submit button clicked successfully') 
+
+    def getAssetId(self):
+        return self.uniqueAssetId;   
 
