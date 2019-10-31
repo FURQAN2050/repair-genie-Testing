@@ -9,8 +9,9 @@ from login import login
 from logout import logout
 
 class workshopReceiveDevice:
-    def __init__(self,wd):
+    def __init__(self,wd,uniqueAssetId):
         self.driver = wd
+        self.uniqueAssetId=uniqueAssetId;
         self.driver.maximize_window()
         self.driverPickupDeviceTest()
 
@@ -27,7 +28,7 @@ class workshopReceiveDevice:
 
     def inputAsset(self):
         self.inputAssetID = self.driver.find_element_by_id('assetid')
-        self.inputAssetID.send_keys('12345')
+        self.inputAssetID.send_keys(self.uniqueAssetId)
         print('AssetID input successful')
 
     def submitButton(self):

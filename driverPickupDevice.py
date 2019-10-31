@@ -9,10 +9,11 @@ from login import login
 
 
 class driverPickupDevice:
-    def __init__(self,wd): #,school_name,assetID
+    def __init__(self,wd,uniqueAssetId): #,school_name,assetID
         # self.school_name = school_name
         # self.assetID = assetID
         self.driver = wd
+        self.uniqueAssetId=uniqueAssetId
         self.driver.maximize_window()
         self.driverPickupDeviceTest()
 
@@ -35,7 +36,7 @@ class driverPickupDevice:
 
     def inputAsset(self):
         self.inputAssetID = self.driver.find_element_by_id('assetid')
-        self.inputAssetID.send_keys('12345')
+        self.inputAssetID.send_keys(self.uniqueAssetId)
         print('AssetID input successful')
 
     def submitButton(self):
