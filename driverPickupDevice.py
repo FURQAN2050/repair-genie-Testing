@@ -6,7 +6,7 @@
 
 
 from login import login
-from logout import logout
+
 
 class driverPickupDevice:
     def __init__(self,wd): #,school_name,assetID
@@ -22,7 +22,6 @@ class driverPickupDevice:
         self.selectSchool()
         self.inputAsset()
         self.submitButton()
-        self.logout_button();
 
     def pickupDeviceMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/pickup")
@@ -44,7 +43,4 @@ class driverPickupDevice:
         self.submitButton.submit() 
         print('Submit success')
 
-    def logout_button(self):
-        logout(self.driver)
-        print('Logged out from admin account')    
 

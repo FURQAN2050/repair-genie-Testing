@@ -10,6 +10,7 @@ class logout:
     def logoutButton(self):
         logoutButton = self.driver.find_element_by_class_name('fa-sign-out')
         logoutButton.click()
+        print('Logged out') 
 
 
     def logoutTest(self):

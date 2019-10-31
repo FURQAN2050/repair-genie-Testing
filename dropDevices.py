@@ -6,8 +6,8 @@
 import time
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
-from login import login
-from logout import logout
+
+
 
 class dropDevices:
     def __init__(self,wd):
@@ -23,7 +23,7 @@ class dropDevices:
     def fillTextBoxes(self):
         self.assetId()
         self.submitButton()
-        self.logoutButton()
+
 
 
     def runTest(self):
@@ -43,7 +43,3 @@ class dropDevices:
         self.submitButton.submit() 
         print('Submit success')
 
-
-    def logoutButton(self):
-        logout(self.driver)
-        print('Logged out from admin account') 

@@ -1,7 +1,7 @@
 import time
-import logout
+
 from selenium.webdriver.support.ui import Select
-from logout import logout
+
 
 
 class submitWorkOrder:
@@ -27,7 +27,6 @@ class submitWorkOrder:
         self.schoolRefID()
         self.Issue()
         self.reset()
-        self.logout()
         
 
     def runTest(self):
@@ -104,8 +103,3 @@ class submitWorkOrder:
         submitButton.click()
         print('submit button clicked successfully')    
 
-
-    def logout(self):
-        lgobj = logout(self.driver)
-        print('logout successfull')   
-  

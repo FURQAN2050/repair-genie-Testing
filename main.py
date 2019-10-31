@@ -19,7 +19,7 @@ from driverPickupDevice import driverPickupDevice
 import adminWorkshopRecDev
 from adminWorkshopRecDev import workshopReceiveDevice
 
-
+from logout import logout
 
 if __name__ == '__main__':
 
@@ -29,12 +29,16 @@ if __name__ == '__main__':
 
     stech = login(webdriver,"stech","pass") #USER: Stech login
     swo = submitWorkOrder(webdriver)
+    logout(webdriver)
     driver = login(webdriver,"driver","pass") #USER Driver Login
     pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
+    logout(webdriver)
     admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
     barcodeObj=BarcodeTest(webdriver)
-    admin = login(webdriver,"admin","pass") #USER Admin Login
-    dropDevices = dropDevices(webdriver) #USER Admin drop device 
+    logout(webdriver)
+    driver = login(webdriver,"driver","pass") #USER Driver Login
+    dropDevices = dropDevices(webdriver) #USER Driver drop device 
+    logout(webdriver)
     webdriver.quit()
 
