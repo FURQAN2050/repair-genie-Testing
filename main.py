@@ -1,23 +1,18 @@
-import login #file name
 from login import login # and from file name get the class
 
-import submitWorkOrder
 from submitWorkOrder import submitWorkOrder
 
-
-import dropDevices
 from dropDevices import dropDevices 
 
 from barcode import BarcodeTest
 
-import chromeWebDriver
 from chromeWebDriver import chromeWebDriver
 
-import driverPickupDevice
 from driverPickupDevice import driverPickupDevice
 
-import adminWorkshopRecDev
 from adminWorkshopRecDev import workshopReceiveDevice
+
+from adminDropDevices import adminDropDevices
 
 from logout import logout
 
@@ -36,7 +31,12 @@ if __name__ == '__main__':
     admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
     barcodeObj=BarcodeTest(webdriver)
+
+
+    # working on drop devices from admin to driver (huzaifa)
+    adminDropDevices = adminDropDevices(webdriver)
     logout(webdriver)
+    
     driver = login(webdriver,"driver","pass") #USER Driver Login
     dropDevices = dropDevices(webdriver) #USER Driver drop device 
     logout(webdriver)

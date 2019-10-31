@@ -14,6 +14,10 @@ class dropDevices:
         self.driver = wd;
         self.runTest()
 
+    def runTest(self):
+        self.opendropDevicesPage();
+        self.fillTextBoxes()   
+
     def opendropDevicesPage(self):
         time.sleep(2);
         self.driver.get("http://testing.repairgenie.net/createdrop")
@@ -24,19 +28,11 @@ class dropDevices:
         self.assetId()
         self.submitButton()
 
-
-
-    def runTest(self):
-        self.opendropDevicesPage();
-        self.fillTextBoxes()   
-
-
     def assetId(self):
         time.sleep(2)
         assetIdTextBox=self.driver.find_element_by_name("assetid")
         assetIdTextBox.send_keys("10000")
         print('asset Id added')
-
 
     def submitButton(self):
         self.submitButton = self.driver.find_element_by_xpath('//*[@id="dropmedev"]/div/div[1]/input[2]')
