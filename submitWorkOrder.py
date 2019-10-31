@@ -102,7 +102,7 @@ class submitWorkOrder:
         time.sleep(3)
         submitButton = self.driver.find_element_by_class_name('btn-success')
         submitButton.click()
-        print('reset button clicked successfully')    
+        print('submit button clicked successfully')    
 
 
     def logout(self):
