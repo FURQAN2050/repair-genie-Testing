@@ -34,5 +34,7 @@ if __name__ == '__main__':
     admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
     barcodeObj=BarcodeTest(webdriver)
+    admin = login(webdriver,"admin","pass") #USER Admin Login
+    dropDevices = dropDevices(webdriver) #USER Admin drop device 
     webdriver.quit()
 

@@ -1,31 +1,35 @@
+# This will Login into the admin Account,
+# Click on Drop Devices menu,
+# Select a given Device from the list,
+# Enter Asset ID into the field,
+# Click Submit
 import time
 from selenium.webdriver.support.ui import Select
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import logout
+from login import login
 from logout import logout
-
 
 class dropDevices:
     def __init__(self,wd):
         self.driver = wd;
         self.runTest()
-        #self.driver.implicitly_wait(3)
-
 
     def opendropDevicesPage(self):
         time.sleep(2);
-        self.driver.find_element_by_link_text('Drop Devices').click()
-        #self.driver.get("http://testing.repairgenie.net/createdrop")
-        print('Drop Devices Page succesfully open')
+        self.driver.get("http://testing.repairgenie.net/createdrop")
+        print('Drop Devices page open succesfully')
+
 
     def fillTextBoxes(self):
         self.assetId()
-        self.sumbit()
+        self.submitButton()
+        self.logoutButton()
+
 
     def runTest(self):
         self.opendropDevicesPage();
-        self.fillTextBoxes()
+        self.fillTextBoxes()   
+
 
     def assetId(self):
         time.sleep(2)
@@ -33,10 +37,13 @@ class dropDevices:
         assetIdTextBox.send_keys("10000")
         print('asset Id added')
 
-    def submit(self):
-        time.sleep(3)
-        submitButton = self.driver.find_element_by_name("").click()
-        submitButton.click()
-        print('sumbit button clicked successfully') 
+
+    def submitButton(self):
+        self.submitButton = self.driver.find_element_by_xpath('//*[@id="dropmedev"]/div/div[1]/input[2]')
+        self.submitButton.submit() 
+        print('Submit success')
 
 
+    def logoutButton(self):
+        logout(self.driver)
+        print('Logged out from admin account') 
