@@ -1,6 +1,6 @@
 import time
-from selenium.webdriver.support.ui import Select
 import logout
+from selenium.webdriver.support.ui import Select
 from logout import logout
 
 

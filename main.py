@@ -8,9 +8,17 @@ from submitWorkOrder import submitWorkOrder
 import dropDevices
 from dropDevices import dropDevices 
 
+from barcode import BarcodeTest
 
 import chromeWebDriver
 from chromeWebDriver import chromeWebDriver
+
+import driverPickupDevice
+from driverPickupDevice import driverPickupDevice
+
+import adminWorkshopRecDev
+from adminWorkshopRecDev import workshopReceiveDevice
+
 
 
 if __name__ == '__main__':
@@ -19,9 +27,12 @@ if __name__ == '__main__':
     cwdObj.setchromeWebDriver()     #set chromedriver
     webdriver=cwdObj.getWebDriver() #get chrome driver so that the same instance should be send to all files
 
-    #loginObj=login(webdriver,"stech","pass")
-    loginObj=login(webdriver,"admin","pass")
-    #swo=submitWorkOrder(webdriver)
-    dd=dropDevices(webdriver)
-    driver = driver(webdriver,"driver","pass")
+    stech = login(webdriver,"stech","pass") #USER: Stech login
+    swo = submitWorkOrder(webdriver)
+    driver = login(webdriver,"driver","pass") #USER Driver Login
+    pickupDevice = driverPickupDevice(webdriver) #(webdriver, schoolname, assetID)
+    admin = login(webdriver,"admin","pass") #USER Admin Login
+    workshopRecDev = workshopReceiveDevice(webdriver) #USER Admin Workshop Receive Device
+    barcodeObj=BarcodeTest(webdriver)
+    webdriver.quit()
 
