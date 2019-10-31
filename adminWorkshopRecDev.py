@@ -11,8 +11,8 @@ from logout import logout
 class workshopReceiveDevice:
     def __init__(self,wd,uniqueAssetId):
         self.driver = wd
-        self.uniqueAssetId=uniqueAssetId;
-        self.driver.maximize_window()
+        self.uniqueAssetId=uniqueAssetId
+        # self.driver.maximize_window()
         self.driverPickupDeviceTest()
 
 # This controls all the Steps to take place
@@ -20,7 +20,7 @@ class workshopReceiveDevice:
         self.workshop_ReceiveMenu()
         self.inputAsset()
         self.submitButton()
-        #self.logout_button()
+        self.logout_button()
 
     def workshop_ReceiveMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/workshoprecvdev")

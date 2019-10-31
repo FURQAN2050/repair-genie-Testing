@@ -20,7 +20,7 @@ class dropDevices:
 
     def opendropDevicesPage(self):
         time.sleep(2);
-        self.driver.get("http://testing.repairgenie.net/createdrop")
+        self.driver.get("http://testing.repairgenie.net/dropmeschoolsdev?sch=Academies+of+Loudoun")
         print('Drop Devices page open succesfully')
 
 

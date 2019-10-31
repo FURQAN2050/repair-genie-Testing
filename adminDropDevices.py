@@ -1,9 +1,9 @@
 
 
 class adminDropDevices:
-  def __init__(self,wd):
+  def __init__(self,wd,uniqueAssetId):
         self.driver = wd
-        self.driver.maximize_window()
+        self.uniqueAssetId=uniqueAssetId
         self.runTest()
 
   def runTest(self):
@@ -23,7 +23,7 @@ class adminDropDevices:
 
   def assetID(self):
         assetIdTextBox=self.driver.find_element_by_name('assetid')
-        assetIdTextBox.send_keys('12345')
+        assetIdTextBox.send_keys(self.uniqueAssetId)
         print('Asset Id Input Successful')
 
   def submitButton(self):

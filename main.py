@@ -16,6 +16,8 @@ from adminDropDevices import adminDropDevices
 
 from logout import logout
 
+import time
+
 if __name__ == '__main__':
 
     cwdObj=chromeWebDriver()        #make class object
@@ -26,21 +28,24 @@ if __name__ == '__main__':
     swo = submitWorkOrder(webdriver)
     uniqueAssetId=swo.getAssetId()
     logout(webdriver)
+
+    time.sleep(4)
+    
     
     driver = login(webdriver,"driver","pass") #USER Driver Login
-    pickupDevice = driverPickupDevice(webdriver,uniqueAssetId+"-C") #(webdriver, schoolname, assetID)
+    pickupDevice = driverPickupDevice(webdriver,uniqueAssetId) #(webdriver, schoolname, assetID)
     logout(webdriver)
     admin = login(webdriver,"admin","pass") #USER Admin Login
-    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId+"-C") #USER Admin Workshop Receive Device
-    barcodeObj=BarcodeTest(webdriver,"14543-C")
+    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId+"-S") #USER Admin Workshop Receive Device
+    barcodeObj=BarcodeTest(webdriver,uniqueAssetId)
 
 
     # working on drop devices from admin to driver (huzaifa)
-    #adminDropDevices = adminDropDevices(webdriver)
-    #logout(webdriver)
+    adminDropDevices = adminDropDevices(webdriver,uniqueAssetId)
+    logout(webdriver)
     
-    #driver = login(webdriver,"driver","pass") #USER Driver Login
-    #dropDevices = dropDevices(webdriver) #USER Driver drop device 
-    #logout(webdriver)
-    #webdriver.quit()
+    # driver = login(webdriver,"driver","pass") #USER Driver Login
+    # dropDevices = dropDevices(webdriver) #USER Driver drop device 
+    # logout(webdriver)
+    webdriver.quit()
 
