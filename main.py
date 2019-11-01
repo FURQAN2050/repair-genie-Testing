@@ -23,7 +23,7 @@ if __name__ == '__main__':
     uniqueAssetId=swo.getAssetId()
     logout(webdriver)
     
-    #driver picks up device and logs out
+    # #driver picks up device and logs out
     driver = login(webdriver,"driver","pass")
     pickupDevice = driverPickupDevice(webdriver,uniqueAssetId)
     logout(webdriver)
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     admin = login(webdriver,"admin","pass")
     workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId)
     barcode= BarcodeStep(webdriver,uniqueAssetId)
-    # lenovoClaim = lenovoClaims(webdriver);
+    lenovoClaim = lenovoClaims(webdriver);
     adminDropDevices = adminDropDevices(webdriver,uniqueAssetId)
     logout(webdriver)
     
