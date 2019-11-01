@@ -8,7 +8,7 @@ class adminDropDevices:
 
   def runTest(self):
     self.opendropDevicesPage()
-    # self.openSchool()
+    #self.openSchool()
     self.assetID()
     self.submitButton()
 
@@ -17,9 +17,9 @@ class adminDropDevices:
       self.driver.get('http://testing.repairgenie.net/createdrop')
       print('Admin Drop Devices Menu Hit')
 
-  # def openSchool(self):
-  #     self.driver.get('http://testing.repairgenie.net/schooldevs?loc=Admin+2nd+Floor')
-  #     print('Drop Devices page open succesfully')
+  def openSchool(self):
+      self.driver.get('schooldevs?loc=Academies+of+Loudoun')
+      print('Drop Devices page open succesfully')
 
   def assetID(self):
         assetIdTextBox=self.driver.find_element_by_name('assetid')

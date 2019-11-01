@@ -21,11 +21,12 @@ class login:
         print('login page succesfully open')
     
     def addCredentials(self):
-        time.sleep(1)
+        time.sleep(2)
         username = self.driver.find_element_by_id("username")
+        time.sleep(2)
         username.send_keys(self.username)
-        time.sleep(1)
         password = self.driver.find_element_by_id("password")
+        time.sleep(2)
         password.send_keys(self.password)
         print('credentials added successfully')
 

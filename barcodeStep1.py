@@ -2,7 +2,7 @@ import time
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 
-class BarcodeTest:
+class BarcodeStep1:
     def __init__(self,wd,uniqueAssetId):
         self.driver = wd
         self.uniqueAssetId=uniqueAssetId;
@@ -12,7 +12,13 @@ class BarcodeTest:
         self.openBarcodePage()
         self.enterBarcodeNumber()
         self.fillTextBoxes()
-        self.clickStatusButton()
+        self.selectRepairComponents()
+        self.clickWorkingStatusButton()
+
+        # barcode step2
+        self.enterBarcodeNumber()
+        self.fillRepairProvided()
+        self.clickFixedStautsButton()
     
     def openBarcodePage(self):
             time.sleep(2)
@@ -35,35 +41,52 @@ class BarcodeTest:
         # self.fillRepairProvided()
         
     def fillLenovoNotes(self):
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.NAME, "lennotes").clear()
         self.driver.find_element(By.NAME, "lennotes").click()
+        time.sleep(1)
         self.driver.find_element(By.NAME, "lennotes").send_keys("Lenovo Notes")
         print('Lenovo Notes filled Successfully')
 
     def fillSchoolNotes(self):
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.ID, "notes").clear()
         self.driver.find_element(By.ID, "notes").click()
+        time.sleep(1)
         self.driver.find_element(By.ID, "notes").send_keys("School Notes")
         print('School Notes filled Successfully')
     
     def fillPrivateNotes(self):
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.ID, "privnotes").clear()
         self.driver.find_element(By.ID, "privnotes").click()
+        time.sleep(1)
         self.driver.find_element(By.ID, "privnotes").send_keys("Private Notes")
         print('Private Notes filled Successfully')
     
-    # USE THIS CODE AGAIN in the right order this should not be here right now
-    # def fillRepairProvided(self):
-    #     time.sleep(2)
-    #     self.driver.find_element(By.CSS_SELECTOR, ".chosen-choices").click()
-    #     time.sleep(2)
-    #     self.driver.find_element(By.XPATH, "//div/div/div/ul/li[7]").click()
-    #     print('full repair info entered Successfully')
+
+    def selectRepairComponents(self):
+        time.sleep(1)
+        self.driver.find_element(By.ID,"38parCheck").click()
+        time.sleep(1)
+        self.driver.find_element(By.ID,"25parCheck").click()
+        time.sleep(1)
+        self.driver.find_element(By.ID,"27parCheck").click()
     
-    def clickStatusButton(self):
-        time.sleep(5)
+    def clickWorkingStatusButton(self):
+        time.sleep(2)
         self.driver.find_element(By.ID, "workingbut").click()        
-        print('status button clicked Successfully')
+        print('working status button clicked')
+
+    # USE THIS CODE AGAIN in the right order this should not be here right now
+    def fillRepairProvided(self):
+        time.sleep(1)
+        self.driver.find_element(By.CSS_SELECTOR, ".chosen-choices").click()
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, "//div/div/div/ul/li[7]").click()
+        print('full repair info entered Successfully')
+
+    def clickFixedStautsButton(self):
+        time.sleep(1)
+        self.driver.find_element(By.ID,"fixbut").click()
+        print('fixed status button clicked')

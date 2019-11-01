@@ -6,7 +6,7 @@
 
 
 from login import login
-
+import time
 
 class driverPickupDevice:
     def __init__(self,wd,uniqueAssetId): #,school_name,assetID
@@ -30,12 +30,13 @@ class driverPickupDevice:
         print('Pick-Up Device Menu Hit')
 
     def selectSchool(self):
-        self.driver.get("http://testing.repairgenie.net/pickupschoolsdev?sch=Admin+2nd+Floor")
+        self.driver.get("http://testing.repairgenie.net/pickupschoolsdev?sch=Academies+of+Loudoun")
         # selectSchoolName.click()
         print('School Name Hit')
 
     def inputAsset(self):
         self.inputAssetID = self.driver.find_element_by_id('assetid')
+        time.sleep(2)
         self.inputAssetID.send_keys(self.uniqueAssetId)
         print('AssetID input successful')
 

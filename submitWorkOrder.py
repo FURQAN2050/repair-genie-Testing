@@ -7,10 +7,12 @@ import random
 
 class submitWorkOrder:   
     def __init__(self,wd):
-        self.driver = wd;
+        self.driver = wd
         self.runTest()
-        #self.driver.implicitly_wait(3)
-    
+
+    def runTest(self):
+        self.openSubmitWorkOrderPage();
+        self.fillTextBoxes()
 
     def openSubmitWorkOrderPage(self):
         time.sleep(2);
@@ -21,7 +23,7 @@ class submitWorkOrder:
         self.assetId()
         self.incidentId()
         self.deviceType()
-        #self.periferal()
+        # self.periferal()
         self.serial()
         self.nameLabel()
         self.pickUp()
@@ -30,11 +32,6 @@ class submitWorkOrder:
         #self.reset()
         self.submit()
         
-
-    def runTest(self):
-        self.openSubmitWorkOrderPage();
-        self.fillTextBoxes()
-
     def assetId(self):
         time.sleep(2)
         assetIdTextBox=self.driver.find_element_by_name("msb")
@@ -53,7 +50,7 @@ class submitWorkOrder:
         time.sleep(2)
         #select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[3]/select"))
         select = Select(self.driver.find_element_by_name('devtype'))
-        select.select_by_index(2)
+        select.select_by_value('500e')
         print('deviceType Added')
 
     def periferal(self):
@@ -96,15 +93,16 @@ class submitWorkOrder:
 
 
     def reset(self):
-        time.sleep(3)
+        time.sleep(2)
         restButton = self.driver.find_element_by_class_name('btn-default')
         restButton.click()
         print('reset button clicked successfully')
 
     def submit(self):
-        time.sleep(3)
+        time.sleep(1)
         submitButton = self.driver.find_element_by_class_name('btn-success')
         submitButton.click()
+        time.sleep(1)
         print('submit button clicked successfully') 
 
     def getAssetId(self):
