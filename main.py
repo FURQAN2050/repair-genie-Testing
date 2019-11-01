@@ -18,13 +18,13 @@ if __name__ == '__main__':
     cwdObj.setchromeWebDriver()
     webdriver=cwdObj.getWebDriver() 
 
-    #stech registers device and logs out
+    # #stech registers device and logs out
     stech = login(webdriver,"stech","pass") 
     swo = submitWorkOrder(webdriver)
     uniqueAssetId=swo.getAssetId()
     logout(webdriver)
     
-    #driver picks up device and logs out
+    # #driver picks up device and logs out
     driver = login(webdriver,"driver","pass")
     pickupDevice = driverPickupDevice(webdriver,uniqueAssetId)
     logout(webdriver)
@@ -33,12 +33,12 @@ if __name__ == '__main__':
     admin = login(webdriver,"admin","pass") #USER Admin Login
     workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId) #USER Admin Workshop Receive Device
     barcodeStep1= BarcodeStep1(webdriver,uniqueAssetId)
-    lenovoClaim = lenovoClaims(webdriver);
+    lenovoClaim = lenovoClaims(webdriver) 
     barcodeStep2 = BarcodeStep2(webdriver,uniqueAssetId)
     adminDropDevices = adminDropDevices(webdriver,uniqueAssetId)
     logout(webdriver)
     
-    #driver: 
+    # #driver: 
     driver = login(webdriver,"driver","pass") #USER Driver Login
     driverdropDevices = Driverdropdevices(webdriver,'13134') #USER Driver drop device 
     logout(webdriver)
