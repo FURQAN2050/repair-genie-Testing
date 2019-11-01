@@ -17,9 +17,10 @@ class submitWorkOrder:
     def openSubmitWorkOrderPage(self):
         time.sleep(2);
         self.driver.get("http://testing.repairgenie.net/addsingledevice")
-        print('submit Work Order Page succesfully open')
+        print('Navigated to stech submit Work Order')
 
     def fillTextBoxes(self):
+        print('filling Submit work order form')
         self.assetId()
         self.incidentId()
         self.deviceType()
@@ -76,7 +77,7 @@ class submitWorkOrder:
         time.sleep(2)
         select = Select(self.driver.find_element_by_xpath("//*[@id='adddevform']/div[7]/select"))
         select.select_by_index(1)
-        print('pickUP and Drop Location Added')  
+        print('pickup and Drop Location Added')  
 
     def schoolRefID(self):
         time.sleep(2)
@@ -88,7 +89,7 @@ class submitWorkOrder:
     def Issue(self):
         time.sleep(2)
         IssueIdTextBox = self.driver.find_element_by_name("issue")
-        IssueIdTextBox.send_keys("A test submission by Abid to go through the workflow.")
+        IssueIdTextBox.send_keys("A test submission by stech to go through the workflow.")
         print('Issue added')
 
 
@@ -104,7 +105,9 @@ class submitWorkOrder:
         submitButton.click()
         time.sleep(1)
         print('submit button clicked successfully') 
+        print('form submitted sucessfully')
 
     def getAssetId(self):
+        print('returning assetid of submitted work order')
         return self.uniqueAssetId;   
 

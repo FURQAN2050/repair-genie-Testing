@@ -2,7 +2,7 @@ import time
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 
-class BarcodeStep1:
+class BarcodeStep:
     def __init__(self,wd,uniqueAssetId):
         self.driver = wd
         self.uniqueAssetId=uniqueAssetId;
@@ -23,7 +23,7 @@ class BarcodeStep1:
     def openBarcodePage(self):
             time.sleep(2)
             self.driver.get("http://testing.repairgenie.net/barcode")
-            print('Admin Dashboard succesfully open')
+            print('Navigated to Admin Dashboard')
     
 
     def enterBarcodeNumber(self):
@@ -32,11 +32,11 @@ class BarcodeStep1:
             self.driver.find_element(By.ID, "code").send_keys(self.uniqueAssetId)
             # this picks up the submit button
             self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
-            print('Barcode Entered Successfully')
+            print('Entered AssetId Successfully in barcode')
     
     def fillTextBoxes(self):
         self.fillLenovoNotes()
-        self.fillSchoolNotes
+        self.fillSchoolNotes()
         self.fillPrivateNotes()
         # self.fillRepairProvided()
         
@@ -68,15 +68,18 @@ class BarcodeStep1:
     def selectRepairComponents(self):
         time.sleep(1)
         self.driver.find_element(By.ID,"38parCheck").click()
+        print("Sucessfully clicked repair component")
         time.sleep(1)
         self.driver.find_element(By.ID,"25parCheck").click()
+        print("Sucessfully clicked repair component")
         time.sleep(1)
         self.driver.find_element(By.ID,"27parCheck").click()
+        print("Sucessfully clicked repair component")
     
     def clickWorkingStatusButton(self):
         time.sleep(2)
         self.driver.find_element(By.ID, "workingbut").click()        
-        print('working status button clicked')
+        print('Device status updated as being worked on')
 
     # USE THIS CODE AGAIN in the right order this should not be here right now
     def fillRepairProvided(self):
@@ -84,9 +87,9 @@ class BarcodeStep1:
         self.driver.find_element(By.CSS_SELECTOR, ".chosen-choices").click()
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//div/div/div/ul/li[7]").click()
-        print('full repair info entered Successfully')
+        print('Repair info entered Successfully')
 
     def clickFixedStautsButton(self):
         time.sleep(1)
         self.driver.find_element(By.ID,"fixbut").click()
-        print('fixed status button clicked')
+        print('Device status updated as being fixed')

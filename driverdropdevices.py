@@ -26,7 +26,7 @@ class Driverdropdevices:
         time.sleep(1)
         self.driver.get("http://testing.repairgenie.net/drop")
         time.sleep(1)
-        print('Drop Devices page open succesfully')
+        print('Navigating to Drop Devices on driver page')
 
 
     def fillTextBoxes(self):
@@ -35,20 +35,20 @@ class Driverdropdevices:
 
     def selectSchool(self):
         self.driver.get("http://testing.repairgenie.net/dropmeschoolsdev?sch=Academies+of+Loudoun")
-        print("driver selected school for device dropof")
+        print("driver selected school for device dropoff")
         time.sleep(1)
 
     def assetId(self):
         assetIdTextBox=self.driver.find_element_by_id('assetid')
         time.sleep(1)
         assetIdTextBox.send_keys(self.uniqueAssetId)
-        print('asset Id added')
+        print('successfully added AssetID')
 
     def submitButton(self):
         self.submitButton = self.driver.find_element_by_xpath('//*[@id="dropdevs"]/input[2]')
         time.sleep(1)
         self.submitButton.submit() 
-        print('Submit success')
+        print('Successfully dropped device at school')
         
 
     # problem
@@ -56,10 +56,10 @@ class Driverdropdevices:
         # signature field is now gone and now giving errors
         signature = self.driver.find_element_by_xpath("//*[contains(text(), ' Signature Confirmation ')]")
         signature.click()
-        print('Signature page on school opened')
+        print('Navigated to signature confirmation page')
         reciever = self.driver.find_element_by_name('receiver')
         time.sleep(1)
-        reciever.send_keys('tester')
+        reciever.send_keys('School representative')
         time.sleep(1)
         canvas = self.driver.find_element_by_class_name('signature-pad')
         actions = ActionChains(self.driver)
@@ -73,5 +73,6 @@ class Driverdropdevices:
         time.sleep(1)
         submitButton = self.driver.find_element_by_id('Submit')
         submitButton.click()
+        print('Successfully confrimed devices were recieved by School representative')
 
         

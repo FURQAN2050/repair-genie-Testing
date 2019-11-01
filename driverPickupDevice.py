@@ -9,9 +9,7 @@ from login import login
 import time
 
 class driverPickupDevice:
-    def __init__(self,wd,uniqueAssetId): #,school_name,assetID
-        # self.school_name = school_name
-        # self.assetID = assetID
+    def __init__(self,wd,uniqueAssetId):
         self.driver = wd
         self.uniqueAssetId=uniqueAssetId
         self.driver.maximize_window()
@@ -27,12 +25,12 @@ class driverPickupDevice:
     def pickupDeviceMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/pickup")
         # pickupMenu.click()
-        print('Pick-Up Device Menu Hit')
+        print('Navigating to pick up device menu')
 
     def selectSchool(self):
         self.driver.get("http://testing.repairgenie.net/pickupschoolsdev?sch=Academies+of+Loudoun")
         # selectSchoolName.click()
-        print('School Name Hit')
+        print('School selected')
 
     def inputAsset(self):
         self.inputAssetID = self.driver.find_element_by_id('assetid')
@@ -43,6 +41,7 @@ class driverPickupDevice:
     def submitButton(self):
         self.submitButton = self.driver.find_element_by_xpath('//*[@id="pickupdevs"]/div/div[1]/input[2]')
         self.submitButton.submit() 
-        print('Submit success')
+        print('AssetID submit successfull')
+        print('driver picked up device')
 
 

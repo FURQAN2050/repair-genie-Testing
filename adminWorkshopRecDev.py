@@ -22,7 +22,7 @@ class workshopReceiveDevice:
 
     def workshop_ReceiveMenu(self):
         pickupMenu = self.driver.get("http://testing.repairgenie.net/workshoprecvdev")
-        print('Receive Menu Hit')
+        print('Navigating to workshop recieve devices')
 
     def inputAsset(self):
         self.inputAssetID = self.driver.find_element_by_id('assetid')
@@ -33,4 +33,4 @@ class workshopReceiveDevice:
     def submitButton(self):
         self.submitButton = self.driver.find_element_by_xpath('//*[@id="workshoprecv"]/div/div[1]/input[2]')
         self.submitButton.submit() 
-        print('Submit success')
+        print('Device Submitted successfully')

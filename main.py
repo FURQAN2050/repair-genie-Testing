@@ -4,9 +4,8 @@ from login import login # and from file name get the class
 from submitWorkOrder import submitWorkOrder
 from driverPickupDevice import driverPickupDevice
 from adminWorkshopRecDev import workshopReceiveDevice
-from barcodeStep1 import BarcodeStep1
+from barcode import BarcodeStep
 from lenovoClaim import lenovoClaims
-from barcodeStep2 import BarcodeStep2
 from adminDropDevices import adminDropDevices
 from driverdropdevices import Driverdropdevices 
 from logout import logout
@@ -19,7 +18,7 @@ if __name__ == '__main__':
     webdriver=cwdObj.getWebDriver() 
 
     #stech registers device and logs out
-    stech = login(webdriver,"stech","pass") 
+    stech = login(webdriver,"stech","pass")
     swo = submitWorkOrder(webdriver)
     uniqueAssetId=swo.getAssetId()
     logout(webdriver)
@@ -30,17 +29,16 @@ if __name__ == '__main__':
     logout(webdriver)
     
     # admin recieves device fixes it , gives to driver and logs out
-    admin = login(webdriver,"admin","pass") #USER Admin Login
-    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId) #USER Admin Workshop Receive Device
-    barcodeStep1= BarcodeStep1(webdriver,uniqueAssetId)
-    lenovoClaim = lenovoClaims(webdriver);
-    barcodeStep2 = BarcodeStep2(webdriver,uniqueAssetId)
+    admin = login(webdriver,"admin","pass")
+    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId)
+    barcode= BarcodeStep(webdriver,uniqueAssetId)
+    # lenovoClaim = lenovoClaims(webdriver);
     adminDropDevices = adminDropDevices(webdriver,uniqueAssetId)
     logout(webdriver)
     
     #driver: 
-    driver = login(webdriver,"driver","pass") #USER Driver Login
-    driverdropDevices = Driverdropdevices(webdriver,'13134') #USER Driver drop device 
+    driver = login(webdriver,"driver","pass")
+    driverdropDevices = Driverdropdevices(webdriver,uniqueAssetId) 
     logout(webdriver)
     webdriver.quit()
 
