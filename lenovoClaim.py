@@ -11,6 +11,7 @@ class lenovoClaims:
   def runTest(self):
     self.lenovoClaimMenu()
     self.downloadCSV()
+    time.sleep(3)
     self.uploadCSV()
     self.submitButton()
 
