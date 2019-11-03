@@ -41,12 +41,13 @@ class BarcodeStep:
         # self.fillRepairProvided()
         
     def fillLenovoNotes(self):
+        lenovonotes = self.driver.find_element(By.ID, "lennotes")
         time.sleep(1)
-        self.driver.find_element(By.NAME, "lennotes").clear()
+        lenovonotes.clear()
         time.sleep(1)
-        self.driver.find_element(By.NAME, "lennotes").click()
+        lenovonotes.click()
         time.sleep(1)
-        self.driver.find_element(By.NAME, "lennotes").send_keys("Lenovo Notes")
+        lenovonotes.send_keys("Lenovo Notes")
         print('Lenovo Notes filled Successfully')
 
     def fillSchoolNotes(self):
