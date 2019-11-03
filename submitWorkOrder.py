@@ -4,6 +4,10 @@ from selenium.webdriver.support.ui import Select
 
 import random
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC 
+
 
 class submitWorkOrder:   
     def __init__(self,wd):
@@ -31,6 +35,7 @@ class submitWorkOrder:
         self.schoolRefID()
         self.Issue()
         #self.reset()
+        time.sleep(2)
         self.submit()
         
     def assetId(self):
@@ -92,7 +97,6 @@ class submitWorkOrder:
         IssueIdTextBox.send_keys("A test submission by stech to go through the workflow.")
         print('Issue added')
 
-
     def reset(self):
         time.sleep(2)
         restButton = self.driver.find_element_by_class_name('btn-default')
@@ -100,10 +104,9 @@ class submitWorkOrder:
         print('reset button clicked successfully')
 
     def submit(self):
-        time.sleep(1)
         submitButton = self.driver.find_element_by_class_name('btn-success')
-        submitButton.click()
-        time.sleep(1)
+        wait = WebDriverWait(self.driver, 1)
+        submitButton = wait.until(EC.element_to_be_clickable((By.CLASS_NAME,'btn-success')))
         print('submit button clicked successfully') 
         print('form submitted sucessfully')
 
