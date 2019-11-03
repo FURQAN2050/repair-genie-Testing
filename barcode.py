@@ -43,6 +43,7 @@ class BarcodeStep:
     def fillLenovoNotes(self):
         time.sleep(1)
         self.driver.find_element(By.NAME, "lennotes").clear()
+        time.sleep(1)
         self.driver.find_element(By.NAME, "lennotes").click()
         time.sleep(1)
         self.driver.find_element(By.NAME, "lennotes").send_keys("Lenovo Notes")
@@ -51,6 +52,7 @@ class BarcodeStep:
     def fillSchoolNotes(self):
         time.sleep(1)
         self.driver.find_element(By.ID, "notes").clear()
+        time.sleep(1)
         self.driver.find_element(By.ID, "notes").click()
         time.sleep(1)
         self.driver.find_element(By.ID, "notes").send_keys("School Notes")
@@ -59,6 +61,7 @@ class BarcodeStep:
     def fillPrivateNotes(self):
         time.sleep(1)
         self.driver.find_element(By.ID, "privnotes").clear()
+        time.sleep(1)
         self.driver.find_element(By.ID, "privnotes").click()
         time.sleep(1)
         self.driver.find_element(By.ID, "privnotes").send_keys("Private Notes")

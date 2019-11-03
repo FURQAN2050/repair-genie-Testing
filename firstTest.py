@@ -26,28 +26,28 @@ class Testcases(unittest.TestCase):
 
   def testSuit1(self):
     #stech registers device and logs out
-    stech = Login(webdriver,"stech","pass")
-    swo = submitWorkOrder(webdriver)
+    stech = Login(self.webdriver,"stech","pass")
+    swo = submitWorkOrder(self.webdriver)
     uniqueAssetId=swo.getAssetId()
-    logout(webdriver)
+    logout(self.webdriver)
     
     # #driver picks up device and logs out
-    driver = Login(webdriver,"driver","pass")
-    pickupDevice = driverPickupDevice(webdriver,uniqueAssetId)
-    logout(webdriver)
+    driver = Login(self.webdriver,"driver","pass")
+    pickupDevice = driverPickupDevice(self.webdriver,uniqueAssetId)
+    logout(self.webdriver)
     
     # admin recieves device fixes it , gives to driver and logs out
-    admin = Login(webdriver,"admin","pass")
-    workshopRecDev = workshopReceiveDevice(webdriver,uniqueAssetId)
-    barcode= BarcodeStep(webdriver,uniqueAssetId)
-    lenovoClaim = lenovoClaims(webdriver);
-    adminDropDevices = adminDropDevices(webdriver,uniqueAssetId)
-    logout(webdriver)
+    admin = Login(self.webdriver,"admin","pass")
+    workshopRecDev = workshopReceiveDevice(self.webdriver,uniqueAssetId)
+    barcode= BarcodeStep(self.webdriver,uniqueAssetId)
+    lenovoClaim = lenovoClaims(self.webdriver);
+    adminDropDevices = adminDropDevices(self.webdriver,uniqueAssetId)
+    logout(self.webdriver)
     
     #driver: 
-    driver = Login(webdriver,"driver","pass")
-    driverdropDevices = Driverdropdevices(webdriver,uniqueAssetId) 
-    logout(webdriver)
+    driver = Login(self.webdriver,"driver","pass")
+    driverdropDevices = Driverdropdevices(self.webdriver,uniqueAssetId) 
+    logout(self.webdriver)
 
   @classmethod
   def tearDownClass(self):

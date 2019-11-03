@@ -30,8 +30,9 @@ class driverPickupDevice:
         print('School selected')
 
     def inputAsset(self):
+        time.sleep(1)
         self.inputAssetID = self.driver.find_element_by_id('assetid')
-        time.sleep(2)
+        time.sleep(1)
         self.inputAssetID.send_keys(self.uniqueAssetId)
         print('AssetID input successful')
 
