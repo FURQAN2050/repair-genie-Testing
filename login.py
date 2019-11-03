@@ -1,12 +1,10 @@
-
 import time
 
-class login:
-    def __init__(self,wd,username,password):
-        self.username=username
-        self.password=password
-        self.driver=wd #wb=webdriver;
-        self.driver.maximize_window()
+class Login:
+    def __init__(self, wd, username, password):
+        self.username = username
+        self.password = password
+        self.driver = wd  # wb=webdriver;
         self.loginTest()
 
 # This controls all the Steps to take place
@@ -18,7 +16,7 @@ class login:
     def openLoginPage(self):
         self.driver.get("http://testing.repairgenie.net")
         print('Navigated to login page')
-    
+
     def addCredentials(self):
         time.sleep(2)
         username = self.driver.find_element_by_id("username")
@@ -31,6 +29,6 @@ class login:
 
     def login_button_submit(self):
         time.sleep(2)
-        self.driver.find_element_by_tag_name("button").click();
+        self.driver.find_element_by_tag_name("button").click()
         print('login button clicked successfully')
-        print(self.username,'logged in successfully')
+        print(self.username, 'logged in successfully')

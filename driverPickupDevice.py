@@ -3,9 +3,6 @@
 # Select a given School from the list,
 # Enter Asset ID into the field,
 # Click Submit
-
-
-from login import login
 import time
 
 class driverPickupDevice:

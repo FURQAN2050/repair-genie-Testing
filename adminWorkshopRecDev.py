@@ -3,8 +3,6 @@
 # Enter values in the AssetID field,
 # Submit the values
 
-from login import login
-from logout import logout
 import time
 
 class workshopReceiveDevice:
